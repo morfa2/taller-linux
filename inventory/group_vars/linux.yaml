@@ -1,2 +1,2 @@
 ---
-ansible user: sysadmin
+ansible_user: sysadmin
