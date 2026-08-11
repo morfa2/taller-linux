@@ -31,6 +31,10 @@
       proto: tcp
       rule: allow
  
+  - name: Initialize root password if not set
+    include_tasks: tasks/initialize_root.yaml
+    when: mysql_root_check.failed is false    
+  
   handlers:
 
   - name: Restart mariadb server
