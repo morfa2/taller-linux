@@ -1,4 +1,4 @@
-DROP DATABASE cumples IF EXISTS;
+DROP DATABASE IF EXISTS cumples;
 CREATE DATABASE cumples;
 USE cumples;
 

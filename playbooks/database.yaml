@@ -30,12 +30,16 @@
       mode: '0600'    
 
   - name: DB is created
-    community.mysql,mysql_db:
-    name: "{{ DB_DBASE }}"
-    state: present
+    ansible.mysql.mysql_db:
+      login_user: root
+      login_password: "{{ DB_ROOT_PW }}"
+      name: "{{ DB_DBASE }}"
+      state: present
 
   - name: Import script SQL
-    community.mysql.mysql_db:
-    name: "{{ DB_DBASE }}"
-    state: import
-    target: /tmp/cumpleanios.sql
+    ansible.mysql.mysql_db:
+      login_user: root
+      login_password: "{{ DB_ROOT_PW }}"
+      name: "{{ DB_DBASE }}"
+      state: import
+      target: /tmp/cumpleanios.sql
