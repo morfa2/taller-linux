@@ -21,3 +21,21 @@
       host: '%'
       priv: "{{ DB_DBASE }}.*:SELECT"
 
+  - name: Copy cumplenios.sql
+    ansible.builtin.copy:
+      src: ../files/cumpleanios.sql
+      dest: /tmp/cumpleanios.sql
+      owner: root
+      group: root
+      mode: '0600'    
+
+  - name: DB is created
+    community.mysql,mysql_db:
+    name: "{{ DB_DBASE }}"
+    state: present
+
+  - name: Import script SQL
+    community.mysql.mysql_db:
+    name: "{{ DB_DBASE }}"
+    state: import
+    target: /tmp/cumpleanios.sql
