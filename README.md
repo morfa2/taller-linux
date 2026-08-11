@@ -2,17 +2,17 @@
 Trabajo del Taller Linux
 
 # Despliegue Automatizado de la Intranet con Ansible
-Este repositorio contiene la solución completa de automatización para el obligatorio de **Taller de Servidores Linux** (Agosto 2026). El objetivo del proyecto es automatizar de forma integral y robusta la instalación, configuración y despliegue de una aplicación web intranet en PHP (que extrae una lista de cumpleaños) y su respectiva base de datos relacional MariaDB [123, 124, 604].
+Este repositorio contiene la solución completa de automatización para el obligatorio de **Taller de Servidores Linux** (Agosto 2026). El objetivo del proyecto es automatizar de forma integral y robusta la instalación, configuración y despliegue de una aplicación web intranet en PHP (que extrae una lista de cumpleaños) y su respectiva base de datos relacional MariaDB.
 
-El diseño arquitectónico de la solución implementa un esquema distribuido de dos servidores gestionados a través de un nodo de control (Ansible Controller) [124, 247, 604]:
-- Servidor de Aplicación (CentOS Stream 9)**: IP por DHCP (típicamente `10.0.2.15`), corriendo el servidor web Apache (`httpd`), el procesador `php-fpm` y la extensión de conexión a MySQL [124, 126, 473].
-- Servidor de Base de Datos (Ubuntu Server 24.04)**: IP estática `10.0.2.100`, corriendo el motor de base de datos MariaDB [124, 212, 604].
+El diseño arquitectónico de la solución implementa un esquema distribuido de dos servidores gestionados a través de un nodo de control (Ansible Controller):
+- Servidor de Aplicación (CentOS Stream 9)**: IP por DHCP (típicamente `10.0.2.15`), corriendo el servidor web Apache (`httpd`), el procesador `php-fpm` y la extensión de conexión a MySQL.
+- Servidor de Base de Datos (Ubuntu Server 24.04)**: IP estática `10.0.2.100`, corriendo el motor de base de datos MariaDB.
 
 ---
 
 ## Estructura del Proyecto
 
-La organización del repositorio sigue estrictamente las mejores prácticas para estructurar proyectos de Ansible [128, 606, 634]:
+La organización del repositorio sigue estrictamente las mejores prácticas para estructurar proyectos de Ansible:
 
 ├── collections/
 │   └── requirements.yml   # Lista de colecciones de Ansible externas requeridas
@@ -33,7 +33,7 @@ La organización del repositorio sigue estrictamente las mejores prácticas para
 
 ## Requisitos Previos
 
-Antes de ejecutar la automatización de Ansible, el entorno debe cumplir con las siguientes condiciones [133, 574]:
+Antes de ejecutar la automatización de Ansible, el entorno debe cumplir con las siguientes condiciones:
 
 1. Configuración de Red**:
    - El nodo CentOS Stream 9 (Servidor Web) debe tener asignada una IP en la red del taller (ej. `10.0.2.15`)
