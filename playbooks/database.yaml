@@ -1,0 +1,23 @@
+---
+- name: Install and configure mariadb on ubuntu
+  hosts: ubuntu01
+  become: true
+  vars_files:
+    - ../vars/database.yaml
+    
+  roles:
+    - install_mariadb
+
+  tasks:
+  
+  - name: Add application user
+    ansible.mysql.mysql_user:
+      login_user: root
+      login_password: "{{ DB_ROOT_PW }}"
+      login_unix_socket: /var/run/mysqld/mysqld.sock
+      check_implicit_admin: false
+      name: "{{ DB_USER }}"
+      password: "{{ DB_PASS }}"
+      host: '%'
+      priv: "{{ DB_DBASE }}.*:SELECT"
+
